@@ -9,8 +9,9 @@ public_folder: "/uploads"
 publish_mode: editorial_workflow
 
 collections:
+  # Single JSON file for the homepage
   - name: home
-    label: Homepage
+    label: "Homepage"
     format: json
     editor:
       preview: false
@@ -25,6 +26,7 @@ collections:
           - { label: "CTA Label", name: "ctaLabel", widget: "string" }
           - { label: "CTA URL", name: "ctaUrl", widget: "string" }
 
+  # Folder of JSON files for team members
   - name: team
     label: "Team Members"
     label_singular: "Member"
