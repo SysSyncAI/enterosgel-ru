@@ -1,36 +1,26 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: SysSyncAI/enterosgel-ru   # your GitHub repo
   branch: main
 
-media_folder: "public/uploads"   # where uploaded files live in the repo
-public_folder: "/uploads"        # how your site references them at runtime
-
-publish_mode: editorial_workflow
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "home"
-    label: "Homepage"
-    format: "json"
-    editor:
-      preview: false
-    files:
-      - file: "public/cms/home.json"
-        label: "Homepage Content"
-        fields:
-          - { label: "Hero Title", name: "heroTitle", widget: "string" }
-          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
-          - { label: "Hero Image", name: "heroImage", widget: "image" }
-          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
-          - { label: "CTA URL", name: "ctaUrl", widget: "string" }
+    label: "Homepage Content"
+    file: "public/cms/home.json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "text" }
 
   - name: "team"
     label: "Team Members"
     folder: "public/cms/team"
     create: true
-    format: "json"
     slug: "{{slug}}"
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Role", name: "role", widget: "string" }
       - { label: "Bio", name: "bio", widget: "text" }
-
+      - { label: "Photo", name: "photo", widget: "image" }
