@@ -1,42 +1,32 @@
 backend:
   name: github
-  repo: SysSyncAI/enterosgel-ru
+  repo: SysSyncAI/enterosgel-ru   # your repo full name
   branch: main
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
-
-publish_mode: editorial_workflow
+media_folder: "public/uploads"   # files are stored here in repo
+public_folder: "/uploads"        # how they are referenced on site
 
 collections:
-  # Single JSON file for the homepage
-  - name: home
-    label: "Homepage"
-    format: json
-    editor:
-      preview: false
+  - name: "home"
+    label: "Homepage Content"
     files:
       - file: "public/cms/home.json"
-        label: "Homepage Content"
-        name: home
+        label: "Homepage"
+        name: "home"
         fields:
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
-          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
           - { label: "Hero Image", name: "heroImage", widget: "image" }
           - { label: "CTA Label", name: "ctaLabel", widget: "string" }
           - { label: "CTA URL", name: "ctaUrl", widget: "string" }
 
-  # Folder of JSON files for team members
-  - name: team
+  - name: "team"
     label: "Team Members"
-    label_singular: "Member"
     folder: "public/cms/team"
     create: true
-    format: json
     slug: "{{slug}}"
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Role", name: "role", widget: "string" }
       - { label: "Bio", name: "bio", widget: "text" }
       - { label: "Photo", name: "photo", widget: "image" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int", min: 0 }
